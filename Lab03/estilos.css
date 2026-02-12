@@ -1,0 +1,51 @@
+body{
+      background-color: rgba(62, 182, 112, 0.623);
+    }
+    .form-group label {
+      display: block;
+      margin-left: 5px;
+      font-weight: bold;
+    }
+ 
+    .form-input {
+      width: 100%;
+      padding: 10px 0;
+      border: 1px solid #6f8363;
+      border-radius: 4px;
+    }
+ 
+    .submit-button {
+      padding: 10px 50px;
+      border-radius: 15px;
+      transition: background-color 0.3s ease;
+    }
+ 
+    .submit-button:hover {
+      background-color: #bcdb0e;
+      /* Un azul más oscuro al pasar el mouse */
+    }
+    .header h1, header h2 {
+        text-align: center;
+        color: #2c525793;
+        font-family: 'arial', sans-serif;
+        margin: 0;
+     } 
+    header h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-top: 1em; 
+      margin-bottom: 0.2em;
+    }
+
+    nav ul{
+      list-style-type: none;
+      padding: 0;
+      display: flex; /*para alinear horizontalmente*/
+      justify-content: center;
+    }
+    nav ul li a{
+      color: rgb(239, 248, 248);
+      font-family: sans-serif;
+      margin: 0 15px; /*espacio entre los elementos del menú*/
+      text-decoration: none; /*eliminar subrayado de los enlaces*/
+    }
