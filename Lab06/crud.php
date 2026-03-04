@@ -2,6 +2,8 @@
 include 'db.php';
 
 $nombre = trim($_POST['nombre'] ?? '');
+$apellido = trim($_POST['apellido'] ?? '');
+$fecha_nacimiento = trim($_POST['fecha_nacimiento'] ?? '');
 $correo = trim($_POST['correo'] ?? '');
 $accion = $_GET['accion'] ?? '';
 
@@ -9,6 +11,8 @@ $accion = $_GET['accion'] ?? '';
 if (isset($accion) && $accion === 'insertar') {
   $errores = [];
   if ($nombre === '')  $errores[] = 'El nombre es obligatorio.';
+  if ($apellido === '')  $errores[] = 'El apellido es obligatorio.';
+  if ($fecha_nacimiento === '')  $errores[] = 'La fecha de nacimiento es obligatoria.';
   if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) $errores[] = 'Correo inválido.';
   if ($correo === '')  $errores[] = 'El correo es obligatorio.';
 
@@ -20,9 +24,9 @@ if (isset($accion) && $accion === 'insertar') {
     exit;
   }
 
-  $sql  = "INSERT INTO alumnos (nombre, correo) VALUES (:nombre, :correo)";
+  $sql  = "INSERT INTO alumnos (nombre, apellido, fecha_nacimiento, correo) VALUES (:nombre, :apellido, :fecha_nacimiento, :correo)";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute([':nombre' => $nombre, ':correo' => $correo]);
+  $stmt->execute([':nombre' => $nombre, ':apellido' => $apellido, ':fecha_nacimiento' => $fecha_nacimiento, ':correo' => $correo]);
 
   header('Location: index.php');
   exit;
@@ -32,7 +36,7 @@ if (isset($accion) && $accion === 'actualizar' && isset($_GET['id'])) {
   $id = $_GET['id'];
   $sql = "UPDATE alumnos SET nombre=:nombre, correo=:correo WHERE id=:id";
   $stmt = $pdo->prepare($sql);
-  $stmt->execute([':nombre' => $nombre, ':correo' => $correo, ':id' => $id]);
+  $stmt->execute([':nombre' => $nombre, ':apellido' => $apellido, ':fecha_nacimiento' => $fecha_nacimiento,':correo' => $correo, ':id' => $id]);
   header("Location: index.php");
 }
 // Acción eliminar

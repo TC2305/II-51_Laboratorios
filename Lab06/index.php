@@ -15,6 +15,14 @@
         <label>Nombre:</label>
         <input type="text" name="nombre" style="width:100%; padding:.5rem; border:1px solid #ccc; border-radius:4px;" required>
       </div>
+      <div style="margin-bottom:1rem;">
+        <label>Apellido:</label>
+        <input type="text" name="apellido" style="width:100%; padding:.5rem; border:1px solid #ccc; border-radius:4px;" required>
+      </div>
+      <div style="margin-bottom:1rem;">
+        <label>Fecha nacimiento:</label>
+        <input type="text" name="fecha_nacimiento" style="width:100%; padding:.5rem; border:1px solid #ccc; border-radius:4px;" required>
+      </div>
       <!-- Correo -->
       <div style="margin-bottom:1rem;">
         <label>Correo electrónico:</label>
